@@ -1,0 +1,28 @@
+The salt-keystore is currently limited to be in the filesystem.
+Running multiple masters requires some sort of shared storage
+(nfs, etc.) to be able to share the keystore as well as the masters
+cache. 
+
+Pluggable external keystores like redis, couchdb or mysql would
+be a great addition to salt and would open up other possibilites
+as well. For example one could store the last time a minion has
+authenticated on each authentication or comments which minion
+belong to which customer etc.
+
+This is just a sample implementation what a keystore-abstraction
+could look like.
+
+RedisKeyService - implements the keystore in redis
+KeystoreFactory - instantiates Keystore services by config
+KeyserviceMixin - mixin-class where key-authentication is needed
+
+This is neither fully implemented nor a fully functional redis-keystore.
+
+Im just curious, if this approach would welcomed at all or not. If so,
+i would put more work into it and try to get it into salt.
+
+Any comment is welcome :-)
+
+- Volker
+
+
